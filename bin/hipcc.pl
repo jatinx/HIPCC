@@ -553,7 +553,7 @@ if ($buildDeps and $HIP_PLATFORM eq 'amd') {
 
 if ($HIP_PLATFORM eq "amd") {
     # Set default optimization level to -O3 for hip-clang, only if user has not requested version info
-    if ($optArg eq "" and $printHipVersion != 1) {
+    if ($optArg eq "" and ($needCFLAGS or $needCFLAGS)) {
         $HIPCXXFLAGS .= " -O3";
         $HIPCFLAGS .= " -O3";
         $HIPLDFLAGS .= " -O3";
@@ -578,7 +578,7 @@ if ($HIP_PLATFORM eq "amd") {
         }
     }
 
-    if (!$compileOnly and $printHipVersion != 1) {
+    if (!$compileOnly and ($needCFLAGS or $needCFLAGS)) {
         $HIPLDFLAGS .= " --hip-link";
         if ($rdc) {
             $HIPLDFLAGS .= $HIPLDARCHFLAGS;
